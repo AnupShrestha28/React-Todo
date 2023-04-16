@@ -1,6 +1,6 @@
 import React from "react";
 
-class AddTodo extends React.Component{
+class Todo extends React.Component{
 
     constructor(){
         super();
@@ -10,31 +10,32 @@ class AddTodo extends React.Component{
         };
     }
 
-    inputText = (e) =>{
-        this.setState({addTodo : e.target.value});
+    inputText = (e) => {
+        this.setState({addTodo:e.target.value});
     }
 
-    buttonAddTodo =(e) => {
+    buttonAddTodo = (e) =>{
         e.preventDefault();
-        const{list, addTodo} = this.state;
-        this.setState({list:[...list,addTodo], addTodo:""});
     }
 
     render(){
-        const{list, addTodo} = this.state;
+        const {list,addTodo} = this.state;
         return(
             <>
                 <h1>{this.props.title}</h1>
                 <form className="form-info" onSubmit={this.buttonAddTodo}>
                     <input type="text" placeholder="Enter your todo" value={addTodo} onChange={this.inputText}/>
-                    <button className="btn-info" type="submit">Add</button>
+                    <button className="btn-info" onClick={() => {
+                        const{list, addTodo} = this.state;
+                        this.setState({list:[...list,addTodo], addTodo:""})
+                    }}>Add</button>
                 </form>
                 <ul>
-                    {list.map((lists, index) => <li className="lists-info" key={index}>{lists}</li>)}
+                    {list.map((lists, index) => <li className="list-info" key={index}>{lists}</li>)}
                 </ul>
             </>
         );
     }
 }
 
-export default AddTodo;
+export default Todo;
