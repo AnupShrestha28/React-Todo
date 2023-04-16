@@ -2,6 +2,30 @@
   text-align: center;
 }
 
+.lists-info{
+  list-style: none;
+}
+
+
+.form-info input{
+  outline: 0;
+  height: 30px;
+  margin-right: 3px;
+  border-radius: 7px;
+  
+}
+
+
+.btn-info{
+  background-color: #282c34;
+  color: #fff;
+  border-radius: 10px;
+  padding: 12px 6px;
+  width: 90px;
+  border: 0;
+  outline: 0;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
